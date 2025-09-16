@@ -1,0 +1,11 @@
+FROM hummingbot/dashboard:latest
+
+SHELL ["/bin/bash", "-lc"]
+
+# Bake matplotlib into the existing conda env used by the dashboard
+RUN conda run -n dashboard conda install -y -c conda-forge matplotlib && \
+    conda clean -afy
+
+# Default CMD is inherited from base image
+
+
